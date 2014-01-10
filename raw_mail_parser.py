@@ -35,7 +35,7 @@ def handle_message(msg):
         # TODO: what are these messages?
         print "<multimple messages>"
     else:
-        print "# New email"
+        print "--------- New email"
         type_handlers[msg.get_content_type()](msg.get_payload())
 
 interesting_msgs = \
