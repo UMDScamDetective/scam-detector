@@ -5,9 +5,9 @@ import email
 test_file = "./data/phishing1.mbox"
 
 with open(test_file, "r") as f:
-    content = f.read()
+    msg = email.message_from_file(f)
 
-msg = email.message_from_string(content)
+for k,v in msg.items():
+    print "%s ====> %s" % (k,v)
 
-for part in msg.walk():
-    print part.get_content_type()
+print msg.get_payload()[:1000]
